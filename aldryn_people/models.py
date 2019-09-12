@@ -113,7 +113,17 @@ class Person(TranslationHelperMixin, TranslatedAutoSlugifyMixin,
             default='',
             help_text=_("Leave blank to auto-generate a unique slug.")),
         function=models.CharField(_('role'), max_length=255, blank=True, default=''),
-        description=HTMLField(_('description'), blank=True, default='')
+        description=HTMLField(_('description'), blank=True, default=''),
+
+        # Add feilds for reporter
+        affiliation=models.CharField(
+            _('affiliation'), max_length=255, blank=False,
+            default='', help_text=_("Provide the affiliation of this person")),
+        report_title=models.CharField(
+            _('report title'), max_length=255, blank=False,
+            default='', help_text=_("Provide the title name of this person's report.")),
+        report_description=HTMLField(_('report description'), blank=True, default='',help_text=_("Provide the description of this person's report."))
+
     )
     phone = models.CharField(
         verbose_name=_('phone'), null=True, blank=True, max_length=100)
@@ -309,7 +319,7 @@ class PeoplePlugin(BasePeoplePlugin):
         help_text=_('When using "group by group", show ungrouped people too.')
     )
     show_links = models.BooleanField(
-        verbose_name=_('Show links to Detail Page'), default=False)
+        verbose_name=_('Show links to Detail Page'), default=True)
     show_vcard = models.BooleanField(
         verbose_name=_('Show links to download vCard'), default=False)
 

@@ -46,7 +46,11 @@ class PersonAdmin(PlaceholderAdminMixin,
             'fields': (
                 'name',
                 'slug',
-                'function', 'description',
+                'function',
+                'affiliation',
+                'description',
+                'report_title',
+                'report_description',
             ),
         }),
         (_('Contact (untranslated)'), {
