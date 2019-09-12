@@ -8,21 +8,21 @@ from aldryn_people.views import DownloadVcardView, GroupDetailView, GroupListVie
 
 
 urlpatterns = [
-    url(r'^group/(?P<pk>[0-9]+)/$',
+    url(r'^group/(?P<pk>[0-9]+)/',
         GroupDetailView.as_view(), name='group-detail'),
-    url(r'^group/(?P<slug>[A-Za-z0-9_\-]+)/$',
+    url(r'^group/(?P<slug>[A-Za-z0-9_\-]+)/',
         GroupDetailView.as_view(), name='group-detail'),
 
-    url(r'^(?P<pk>[0-9]+)/$',
+    url(r'^(?P<pk>[0-9]+)/',
         PersonDetailView.as_view(), name='person-detail'),
-    url(r'^(?P<slug>[A-Za-z0-9_\-]+)/$',
+    url(r'^(?P<slug>[A-Za-z0-9_\-]+)/',
         PersonDetailView.as_view(), name='person-detail'),
 
-    url(r'^(?P<pk>[0-9]+)/download/$',
+    url(r'^(?P<pk>[0-9]+)/download/',
         DownloadVcardView.as_view(), name='download_vcard'),
-    url(r'^(?P<slug>[A-Za-z0-9_\-]+)/download/$',
+    url(r'^(?P<slug>[A-Za-z0-9_\-]+)/download/',
         DownloadVcardView.as_view(), name='download_vcard'),
 
-    url(r'^$',
+    url(r'^',
         GroupListView.as_view(), name='group-list'),
 ]
